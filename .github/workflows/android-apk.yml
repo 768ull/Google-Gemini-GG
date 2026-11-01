@@ -36,14 +36,18 @@ jobs:
           java-version: "17"
           cache: gradle
 
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          # Avoid the obsolete "tools" package requested by the action default.
+          packages: platform-tools
+          accept-android-sdk-licenses: true
+
       - name: Install Android SDK 36
         run: |
           set -o pipefail
-          SDKMANAGER="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
-          test -x "$SDKMANAGER"
-          yes | "$SDKMANAGER" --licenses
-          "$SDKMANAGER" "platform-tools" "platforms;android-36" "build-tools;36.0.0"
-          echo "$ANDROID_HOME/platform-tools" >> "$GITHUB_PATH"
+          yes | sdkmanager --licenses
+          sdkmanager "platform-tools" "platforms;android-36" "build-tools;36.0.0"
 
       - name: Build debug APK
         run: |
