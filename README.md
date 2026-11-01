@@ -1,20 +1,29 @@
 # Google Gemini GG — Android
 
-Projeto independente em Kotlin que abre o Gemini oficial em uma WebView Android, com controles de navegação e zoom restritos.
+Aplicativo Android nativo independente, escrito em Kotlin, que abre o Gemini oficial em uma WebView Android.
 
-## Código-fonte
-O projeto Android Studio completo está na pasta [android/](./android/). Abra essa pasta no Android Studio.
+## Projeto Android Studio
+Abra a pasta [android/](./android/) no Android Studio.
 
-## Recursos
+## Ícone do aplicativo
+O ícone usa o símbolo multicolorido enviado para o projeto, reproduzido em vetor com gradiente. Ele possui:
+- Camada de primeiro plano com o símbolo colorido.
+- Camada de fundo branca independente.
+- Camada monocromática para ícones temáticos do Android 13 ou superior.
+- Recursos adaptativos em `mipmap-anydpi-v26` e vetores de compatibilidade para Android 7.x.
+
+O launcher aplica automaticamente a máscara disponível no dispositivo (círculo, quadrado arredondado ou outra forma).
+
+## Recursos do aplicativo
 - Tela imersiva, sem barra de endereço ou botões de navegador.
 - Zoom por pinça e menu de contexto desativados.
-- Navegação HTTPS restrita ao Gemini e aos endpoints essenciais de autenticação Google.
+- Navegação principal HTTPS restrita ao Gemini e aos endpoints necessários de autenticação Google.
 - Pop-ups e links externos bloqueados.
 - Certificados TLS inválidos e conteúdo misto HTTP rejeitados.
-- Seletor nativo de arquivos e permissões de microfone/câmera sob autorização do Android.
+- Seletor de arquivos e permissões de câmera/microfone sob autorização do Android.
 
 ## Compilação
-Requisitos: Android Studio recente, JDK 17, Android SDK Platform 36 e Android 7.0 (API 24) ou superior. Consulte [android/README.md](./android/README.md).
+Consulte [android/README.md](./android/README.md). Requisitos principais: Android Studio recente, JDK 17 e Android SDK Platform 36.
 
 ## Aviso
-Este projeto não é oficial nem afiliado ao Google. A interface e a IA são carregadas dos servidores oficiais do Gemini. O Google pode limitar o login em navegadores incorporados, portanto a autenticação dentro da WebView não é garantida.
+Este é um projeto independente e não oficial, sem afiliação com o Google. O Gemini e os serviços de IA são carregados dos servidores oficiais pela internet. O Google pode limitar autenticação em navegadores incorporados.

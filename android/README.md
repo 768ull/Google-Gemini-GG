@@ -1,15 +1,25 @@
 # Gemini GG para Android
 
-Aplicativo Android nativo (Kotlin) que abre a versão web oficial do Gemini em uma WebView do Android, com a biblioteca AndroidX WebKit.
+Aplicativo Android nativo (Kotlin) que abre a versão web oficial do Gemini em uma WebView do Android.
 
-> Projeto independente e não oficial. Google Gemini e suas marcas pertencem ao Google. A interface e os serviços do Gemini são carregados dos servidores oficiais; este projeto não contém nem replica o modelo de IA.
+## Ícone adaptativo
+
+O ícone reproduz o símbolo multicolorido da imagem fornecida como vetor escalável. Os arquivos ficam em:
+
+- `app/src/main/res/drawable/ic_launcher_foreground.xml`: símbolo colorido com gradiente.
+- `app/src/main/res/drawable/ic_launcher_monochrome.xml`: camada monocromática para ícones temáticos.
+- `app/src/main/res/values/ic_launcher_background.xml`: plano de fundo branco.
+- `app/src/main/res/mipmap-anydpi-v26/`: ícones adaptativos para Android 8.0+.
+- `app/src/main/res/mipmap-anydpi/`: fallback vetorial para Android 7.x.
+
+O `AndroidManifest.xml` declara `android:icon` e `android:roundIcon`. O Android aplica a máscara do launcher ao ícone adaptativo, por isso o símbolo foi mantido dentro da safe zone central.
 
 ## Recursos
 
-- Inicializa https://gemini.google.com/app?hl=pt-BR.
+- Inicializa `https://gemini.google.com/app?hl=pt-BR`.
 - Tela imersiva, sem barra de endereço, abas ou botões de navegador.
 - Zoom por pinça e controles de zoom desativados.
-- Menu de contexto e janelas target=_blank bloqueados.
+- Menu de contexto e janelas `target=_blank` bloqueados.
 - Navegação principal HTTPS permitida somente para Gemini e endpoints de autenticação Google.
 - Erros de certificado TLS são sempre cancelados; conteúdo misto HTTP é bloqueado.
 - Cookies, JavaScript e armazenamento DOM habilitados para a sessão web.
@@ -27,10 +37,10 @@ Aplicativo Android nativo (Kotlin) que abre a versão web oficial do Gemini em u
 
 Abra esta pasta no Android Studio e aguarde a sincronização do Gradle. Ou execute:
 
-- Linux/macOS: chmod +x gradlew e depois ./gradlew assembleDebug.
-- Windows: gradlew.bat assembleDebug.
+- Linux/macOS: `chmod +x gradlew` e depois `./gradlew assembleDebug`.
+- Windows: `gradlew.bat assembleDebug`.
 
-O APK de depuração, após compilação, fica em app/build/outputs/apk/debug/app-debug.apk.
+O APK de depuração, após compilação, fica em `app/build/outputs/apk/debug/app-debug.apk`.
 
 ## Observações importantes
 
@@ -42,8 +52,8 @@ O APK de depuração, após compilação, fica em app/build/outputs/apk/debug/ap
 
 ## Configuração
 
-- applicationId: com.gg.gemini
-- versionName: 1.0.0
-- minSdk: 24
-- compileSdk / targetSdk: 36
-- AndroidX WebKit: 1.18.0
+- applicationId: `com.gg.gemini`
+- versionName: `1.0.0`
+- minSdk: `24`
+- compileSdk / targetSdk: `36`
+- AndroidX WebKit: `1.18.0`
