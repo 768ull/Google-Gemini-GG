@@ -27,3 +27,15 @@ Consulte [android/README.md](./android/README.md). Requisitos principais: Androi
 
 ## Aviso
 Este é um projeto independente e não oficial, sem afiliação com o Google. O Gemini e os serviços de IA são carregados dos servidores oficiais pela internet. O Google pode limitar autenticação em navegadores incorporados.
+
+
+## Gerar o APK automaticamente
+
+O repositório inclui uma GitHub Action em [Build Android APK](./.github/workflows/android-apk.yml).
+
+- Cada alteração em `android/**` na branch `main` inicia a compilação.
+- Também é possível iniciar manualmente em **Actions → Build Android APK → Run workflow**.
+- Quando a compilação termina, o APK fica disponível em **Actions → execução → Artifacts → Gemini-GG-Android-APK**.
+- Para publicar o APK também na página **Releases**, crie e envie uma tag de versão, por exemplo `v1.0.1`.
+
+O workflow gera um APK de depuração (`app-debug.apk`). Para distribuição pública, configure uma chave de assinatura protegida nos GitHub Actions Secrets e um fluxo de build release assinado.
